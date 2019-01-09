@@ -25,25 +25,32 @@ As the game progresses, the game will pick up in speed increasing the level of d
 ## Implementation timeline
 Day 1
 - [ ] Project concept and proposal
-- [ ] Create skeleton for project
 - [ ] Understand the usage of canvas
 
 Day 2
+- [ ] Create skeleton for project
 - [ ] Create layout of the game
-- [ ] Start player rendering and functionality
 
 Day 3
+- [ ] Start player rendering and functionality
+
+Day 4
 - [ ] Complete player rendering and functionality
 - [ ] Start Obstacle rendering and functionality
 
-Day 4
+Day 5
 - [ ] Complete Obstacle rendering and functionality
 - [ ] Add obstacle/player collision logic
 
-Day 5
-- [ ] 
+Day 6
+- [ ] Touch up UI/UX
 - [ ] Style webpage
 
-Day 6
-
 Day 7
+- [ ] Bonus Features
+
+## Bonus features
+- Items that can help/hinder player
+  - Tires: run over obstacles
+  - Boost: gives the player a life
+  - Oil: reverse controls
