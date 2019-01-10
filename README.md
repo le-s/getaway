@@ -16,6 +16,10 @@ As the game progresses, the game will pick up in speed increasing the level of d
 - HTML5 Canvas for rendering
 - Webpack to bundle various scripts
 
+## Wireframes
+
+<a href="https://imgur.com/mIqDP2e"><img src="https://i.imgur.com/mIqDP2e.png" title="source: imgur.com" /></a>
+
 ## MVPs
 - [ ] Menu renders with directions and button to start game
 - [ ] User's can move left and right 
