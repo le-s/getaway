@@ -1,0 +1,27 @@
+html {
+  background-image: url('../images/wasteland_city.png');
+  background-size: cover;
+}
+
+.game-container {
+  display: flex;
+  align-items: center;
+  height: -webkit-fill-available;
+  justify-content: space-around;
+}
+
+.instructions {
+  height: 702px;
+  width: 470px;
+  background-color: white;
+  opacity: .6;
+  margin-bottom: 2px;
+}
+
+.instructions h2 {
+  font-size: 72px;
+  text-align: center;
+  font-style: oblique;
+  margin-top: 15px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
