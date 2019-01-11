@@ -1,9 +1,9 @@
 import Car from './car';
-import Road from './road'
+import Road from './road';
 import Physics from './physics';
 
-const car = new Car(new Physics(300, 300));
-const road = new Road(new Physics(200, 200));
+const car = new Car(new Physics(200, 550));
+const road = new Road(new Physics(0, -561));
 
 const assets = [
   road,

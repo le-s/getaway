@@ -3,16 +3,16 @@ const setupControlListeners = (game) => {
     const car = game.assets[1]
     
     if (e.key === "a" || e.key === "ArrowLeft") {
-      car.physics.dLeft = 5;
+      car.physics.dLeft = 4;
     }
     if (e.key === "d" || e.key === "ArrowRight") {
-      car.physics.dRight = 5;
+      car.physics.dRight = 4;
     }
     if (e.key === "w" || e.key === "ArrowUp") {
-      car.physics.dUp = 5;
+      car.physics.dUp = 4;
     }
     if (e.key === "s" || e.key === "ArrowDown") {
-      car.physics.dDown = 5;
+      car.physics.dDown = 4;
     }
   })
   window.addEventListener('keyup', e => {

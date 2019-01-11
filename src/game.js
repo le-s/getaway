@@ -17,6 +17,11 @@ class Game {
     this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
       physics.x, physics.y, sprite.width, sprite.height);
     
+    // if (sprite.height === 0) {
+    //   this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
+    //     physics.x, physics.y, sprite.width, sprite.height);
+    // }
+
     physics.updatePosition();
   }
 
@@ -29,7 +34,7 @@ class Game {
         this.drawAsset(this.assets[i]);
       }
     }
-    
+
     animate();
   }
   // draw() {

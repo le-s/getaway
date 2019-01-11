@@ -1,6 +1,6 @@
 import Game from "./game.js";
-import assets from './assets.js'
-import setupControlListeners from './car_controls.js'
+import assets from './assets.js';
+import setupControlListeners from './car_controls.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("canvas");
