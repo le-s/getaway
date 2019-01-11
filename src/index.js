@@ -1,11 +1,7 @@
-import _ from 'lodash'
+import Game from "./game";
 
-function component() {
-  let element = document.createElement("div");
-
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-
-  return element;
-}
-
-document.body.appendChild(component());
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("canvas");
+  const game = new Game(canvas);
+  game.play();
+});
