@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const ctx = canvas.getContext('2d');
   canvas.height = 700;
   canvas.width = 500;
-  // const ctx = canvas.getContext('2d');
   const game = new Game(canvas, ctx, assets);
   setupControlListeners(game);
 

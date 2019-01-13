@@ -9,8 +9,6 @@ class Game {
     this.canvas = canvas;
     this.ctx = ctx;
     this.assets = assets;
-    // this.bg = new GameView(canvas);
-    // this.car = new Car(canvas);
   }
 
   drawAsset(asset) {
@@ -51,14 +49,15 @@ class Game {
         }
         // draw aditional image
         // if (asset.physics.y > (canvas.height - sprite.height)) {
-          this.ctx.drawImage(sprite.img, asset.physics.x, asset.physics.y - sprite.height + 1, sprite.width, sprite.height);
+          // debugger
+        this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height, asset.physics.x, asset.physics.y - sprite.height + 1, sprite.width, sprite.height);
         // }
       }
-      // draw image
-      this.ctx.drawImage(sprite.img, asset.physics.x, asset.physics.y, sprite.width, sprite.height);
-      // amount to move
-      asset.physics.y += asset.physics.dy;
-      physics.updatePosition();
+      // // draw image
+      // this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height, asset.physics.x, asset.physics.y, sprite.width, sprite.height);
+      // // amount to move
+      // asset.physics.y += asset.physics.dy;
+      // physics.updatePosition();
     }
 
     this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
@@ -68,7 +67,7 @@ class Game {
 
   draw() {
     const animate = () => {
-      const assets = Object.values(this.assets)
+      const assets = Object.values(this.assets);
       requestAnimationFrame(animate);
       this.ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -79,27 +78,6 @@ class Game {
 
     animate();
   }
-  // draw() {
-  //   this.drawBG();
-  // }
-
-  // start() {
-  //   const ctx = this.canvasEl.getContext("2d");
-  //   const animateCallback = () => {
-  //     this.frame = requestAnimationFrame(animateCallback);
-  //     this.renderBackground(ctx);
-  //   };
-  //   animateCallback();
-  // }
-
-  // drawBG() {
-  //   this.bg.draw(this.ctx);
-  // }
-
-  // play() {
-  //   this.draw();
-  //   // this.car.draw(this.ctx);
-  // }
 }
 
 export default Game;
