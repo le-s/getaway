@@ -1,6 +1,6 @@
 const setupControlListeners = (game) => {
   window.addEventListener('keydown', e => {
-    const car = game.assets[1]
+    const car = game.assets.car
     
     if (e.key === "a" || e.key === "ArrowLeft") {
       car.physics.dLeft = 4;
@@ -16,7 +16,7 @@ const setupControlListeners = (game) => {
     }
   })
   window.addEventListener('keyup', e => {
-    const car = game.assets[1]
+    const car = game.assets.car
     
     if (e.key === "a" || e.key === "ArrowLeft") {
       car.physics.dLeft = 0;
