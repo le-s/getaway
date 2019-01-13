@@ -8,23 +8,18 @@ class Car {
   constructor(physics) {
     this.physics = physics;
     this.sprite = new Sprite(carImg, 100, 100);
+    this.life = 1;
   }
+
+  hitObstacle() {
+    this.life -= 1;
+
+    if (this.life === 0) {
+      console.log("Game over");
+      this.remove();
+    }
+  }
+
 }
-
-// class Car {
-//   constructor(canvas) {
-//     this.car = new Image();
-//     this.height = canvas.height;
-//     this.width = canvas.width;
-//     this.car.src = './assets/images/car.png';
-//   }
-
-//   draw(ctx) {
-//     console.log(this.car);
-//     ctx.drawImage(
-//       this.car, 0, 0, 100, 100, 
-//       100, 100, 100, 100);
-//   }
-// }
 
 export default Car;
