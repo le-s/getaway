@@ -18,11 +18,37 @@ html {
   margin-bottom: 2px;
 }
 
-.instructions h2 {
-  font-size: 72px;
+.title {
+  font-size: 88px;
   text-align: center;
   font-style: oblique;
   margin-top: 15px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  opacity: 1;
+}
+
+.info {
+  position: relative;
+}
+
+.slow {
+  position: absolute;
+  padding: 310px 0 0 90px;
+  color: white;
+  font-size: 78px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: oblique;
+}
+
+.score {
+  color: black;
+  text-align: center;
+  font-size: 46px;
+  line-height: 52px;
+}
+
+.lives {
+  color: black;
+  text-align: center;
+  font-size: 32px;
+  line-height: 40px;
 }

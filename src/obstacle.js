@@ -1,6 +1,5 @@
 import Physics from "./physics";
 import Sprite from "./sprite";
-import Car from './car'
 
 const rockImg = new Image();
 rockImg.src = "./assets/images/rock.png";
@@ -13,6 +12,10 @@ class Obstacle {
 
   move() {
     this.physics.dDown = 2;
+  }
+
+  stop() {
+    this.physics.dDown = 0;
   }
 }
 

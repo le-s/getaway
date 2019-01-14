@@ -10,6 +10,7 @@ class Game {
     this.canvas = canvas;
     this.ctx = ctx;
     this.assets = assets;
+    this.gameOver = false;
   }
 
   static checkCollision(car, obstacle, array) {
@@ -38,14 +39,16 @@ class Game {
       // console.log(asset.physics.y)
       
       if (asset.physics.y > canvas.height) {
-        this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height, asset.physics.x, asset.physics.y - sprite.height + 1, sprite.width, sprite.height);
+        this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height, asset.physics.x, asset.physics.y - 900, sprite.width, sprite.height);
       }
 
     }
 
     this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
       physics.x, physics.y, sprite.width, sprite.height);
-    physics.updatePosition();
+    if (this.assets.car.life != 0) {
+      physics.updatePosition();
+    }
   }
 
   draw() {
@@ -64,9 +67,24 @@ class Game {
           this.drawAsset(assets[i]);
         }
       }
+      this.assets.road.addScore();
+      document.getElementById("score").innerHTML = `Score: ${this.assets.road.score}`;
+      document.getElementById("lives").innerHTML = `Lives: ${this.assets.car.life}`;
+      this.end();
     }
 
     animate();
+  }
+
+  end() {
+    if (this.assets.car.life === 0) {
+      this.gameOver = true;
+      this.assets.road.stop();
+      this.assets.rock.forEach(el => {
+        el.stop();
+      })
+      document.getElementById("slow").innerHTML = `Too Slow!`;
+    }
   }
 
   start() {

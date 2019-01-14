@@ -11,5 +11,4 @@ document.addEventListener("DOMContentLoaded", () => {
   setupControlListeners(game);
 
   game.start();
-
 });
