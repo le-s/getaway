@@ -11,7 +11,7 @@ const road = new Road(new Physics(0, -561));
 // );
 
 let rock = [];
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 10; i++) {
   rock.push(new Obstacle(new Physics(
     Math.floor(Math.random() * 310) + 80,
     Math.floor(Math.random() * 910) - 560)

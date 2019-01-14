@@ -8,6 +8,10 @@ class Road {
   constructor(physics) {
     this.physics = physics;
     this.sprite = new Sprite(roadImg, 1262, 502);
+    // this.physics.dDown = 2;
+  }
+
+  move() {
     this.physics.dDown = 2;
   }
 }

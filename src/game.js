@@ -15,16 +15,9 @@ class Game {
   static checkCollision(car, obstacle, array) {
     if (Util.collide(car, obstacle)) {
       car.hitObstacle();
-      // debugger
       array.splice(array.indexOf(obstacle), 1);
     }
   }
-
-  // remove(object) {
-  //   if (object instanceof Obstacle) {
-  //     this.obstacle.splice(this.obstacle.indexOf(object), 1);
-  //   }
-  // }
 
   drawAsset(asset) {
     const { physics, sprite } = asset;
@@ -74,6 +67,14 @@ class Game {
     }
 
     animate();
+  }
+
+  start() {
+    this.draw();
+    this.assets.road.move();
+    this.assets.rock.forEach(el => {
+      el.move();
+    })
   }
 }
 

@@ -9,11 +9,10 @@ class Obstacle {
   constructor(physics) {
     this.physics = physics;
     this.sprite = new Sprite(rockImg, 30, 35);
-    this.physics.dDown = 2;
   }
 
-  remove() {
-    this.clear();
+  move() {
+    this.physics.dDown = 2;
   }
 }
 

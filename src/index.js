@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const game = new Game(canvas, ctx, assets);
   setupControlListeners(game);
 
-  game.draw();
+  game.start();
 
 });
