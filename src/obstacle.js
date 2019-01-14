@@ -8,18 +8,12 @@ rockImg.src = "./assets/images/rock.png";
 class Obstacle {
   constructor(physics) {
     this.physics = physics;
-    this.sprite = new Sprite(rockImg, 100, 100);
+    this.sprite = new Sprite(rockImg, 30, 35);
     this.physics.dDown = 2;
   }
 
-  collideWith(object) {
-    if (object instanceof Car) {
-      object.hitObstacle();
-      this.remove();
-      return true;
-    }
-
-    return false;
+  remove() {
+    this.clear();
   }
 }
 

@@ -2,6 +2,8 @@
 // import Car from './car.js';
 // import { request } from 'http';
 import Road from './road.js';
+import Util from './util';
+import Obstacle from './obstacle';
 
 class Game {
   constructor(canvas, ctx, assets) {
@@ -9,6 +11,20 @@ class Game {
     this.ctx = ctx;
     this.assets = assets;
   }
+
+  static checkCollision(car, obstacle, array) {
+    if (Util.collide(car, obstacle)) {
+      car.hitObstacle();
+      // debugger
+      array.splice(array.indexOf(obstacle), 1);
+    }
+  }
+
+  // remove(object) {
+  //   if (object instanceof Obstacle) {
+  //     this.obstacle.splice(this.obstacle.indexOf(object), 1);
+  //   }
+  // }
 
   drawAsset(asset) {
     const { physics, sprite } = asset;
@@ -23,6 +39,17 @@ class Game {
       }
     }
 
+    if (asset instanceof Obstacle && asset.physics.y >= 0) {
+      // console.log(sprite.height)
+      // console.log(canvas.height)
+      // console.log(asset.physics.y)
+      
+      if (asset.physics.y > canvas.height) {
+        this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height, asset.physics.x, asset.physics.y - sprite.height + 1, sprite.width, sprite.height);
+      }
+
+    }
+
     this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
       physics.x, physics.y, sprite.width, sprite.height);
     physics.updatePosition();
@@ -35,7 +62,14 @@ class Game {
       this.ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (let i = 0; i < assets.length; i++) {
-        this.drawAsset(assets[i]);
+        if (assets[i] instanceof Array) {
+          for (let j = 0; j < assets[i].length; j++) {
+            this.drawAsset(assets[i][j]);
+            Game.checkCollision(this.assets.car, assets[i][j], this.assets.rock);
+          }
+        } else {
+          this.drawAsset(assets[i]);
+        }
       }
     }
 

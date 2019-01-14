@@ -1,8 +1,13 @@
 const Util = {
-  dist(pos1, pos2) {
-    return Math.sqrt(
-      Math.pow(pos1[0] - pos2[0], 2) + Math.pow(pos1[1] - pos2[1], 2)
-    );
+  collide(obj1, obj2) {
+    if (
+      obj1.physics.x < obj2.physics.x + obj2.sprite.width
+      && obj1.physics.x + obj1.sprite.width > obj2.physics.x
+      && obj1.physics.y < obj2.physics.y + obj2.sprite.height
+      && obj1.physics.y + obj1.sprite.height > obj2.physics.y
+    ) return true;
+
+    return false;
   }
 };
 
