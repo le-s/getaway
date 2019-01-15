@@ -130,7 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst setupControlListeners =
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sprite */ \"./src/sprite.js\");\n\n\nconst cashImg = new Image();\ncashImg.src = \"./assets/images/money.png\";\n\nclass Cash {\n  constructor(physics) {\n    this.physics = physics;\n    this.sprite = new _sprite__WEBPACK_IMPORTED_MODULE_0__[\"default\"](cashImg, 30, 22);\n  }\n\n  move() {\n    this.physics.dDown = 4;\n  }\n\n  stop() {\n    this.physics.dDown = 0;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Cash);\n\n\n//# sourceURL=webpack:///./src/cash.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sprite */ \"./src/sprite.js\");\n\n\nconst cashImg = new Image();\ncashImg.src = \"./assets/images/money.png\";\n\nclass Cash {\n  constructor(physics) {\n    this.physics = physics;\n    this.sprite = new _sprite__WEBPACK_IMPORTED_MODULE_0__[\"default\"](cashImg, 40, 40);\n  }\n\n  move() {\n    this.physics.dDown = 4;\n  }\n\n  stop() {\n    this.physics.dDown = 0;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Cash);\n\n\n//# sourceURL=webpack:///./src/cash.js?");
 
 /***/ }),
 

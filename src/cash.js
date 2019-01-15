@@ -6,7 +6,7 @@ cashImg.src = "./assets/images/money.png";
 class Cash {
   constructor(physics) {
     this.physics = physics;
-    this.sprite = new Sprite(cashImg, 30, 22);
+    this.sprite = new Sprite(cashImg, 40, 40);
   }
 
   move() {
