@@ -151,3 +151,24 @@ html {
   flex-direction: column;
   align-items: center;
 }
+
+.github {
+  background-image: url('../images/github.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50px;
+  width: 50px;}
+
+.linkedin {
+  background-image: url('../images/linkedin.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50px;
+  width: 50px;}
+
+.social {
+  display: flex;
+  height: 7%;
+  justify-content: space-around;
+  margin-top: 76px;
+}
