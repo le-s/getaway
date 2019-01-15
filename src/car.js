@@ -13,13 +13,15 @@ class Car {
 
   hitObstacle() {
     this.life -= 1;
-    console.log(this.life)
-    if (this.life === 0) {
-      console.log("Game over");
-      // this.remove();
-    }
   }
 
+  getLife() {
+    this.life += 1;
+  }
+
+  is_valid() {
+    
+  }
 }
 
 export default Car;

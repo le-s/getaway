@@ -44,6 +44,7 @@ html {
   text-align: center;
   font-size: 46px;
   line-height: 52px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .lives {
@@ -51,4 +52,5 @@ html {
   text-align: center;
   font-size: 32px;
   line-height: 40px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
