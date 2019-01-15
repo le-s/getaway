@@ -18,10 +18,6 @@ class Car {
   getLife() {
     this.life += 1;
   }
-
-  is_valid() {
-    
-  }
 }
 
 export default Car;

@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("play-btn").addEventListener("click", () => {
     document.getElementById("splash").style.visibility = 'hidden';
     game = new Game(canvas, ctx, assets);
+
     setupControlListeners(game);
+    
     game.start();
   })
 });

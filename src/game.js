@@ -7,6 +7,7 @@ import Util from './util.js';
 import Obstacle from './obstacle.js';
 import Physics from './physics.js';
 import Cash from './cash.js';
+import Car from './car.js'
 
 class Game {
   constructor(canvas, ctx, assets) {
@@ -63,6 +64,7 @@ class Game {
   drawAsset(asset) {
     const { physics, sprite } = asset;
 
+    // redraw road
     if (asset instanceof Road && asset.physics.y >= 0) {
       if (sprite.height > canvas.height) {
         if (asset.physics.y > (canvas.height)) {
@@ -73,17 +75,25 @@ class Game {
       }
     }
 
+    // draw more rocks
     if (asset instanceof Obstacle && asset.physics.y >= 0) { 
       if (asset.physics.y > canvas.height) {
         this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height, asset.physics.x, asset.physics.y - 900, sprite.width, sprite.height);
       }
     }
 
+    // draw everything else
     this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
       physics.x, physics.y, sprite.width, sprite.height);
 
+    
+    // update position of all objects
     if (this.assets.car.life != 0) {
-      physics.updatePosition();
+      if (asset instanceof Car) {
+        physics.boundedUpdate();
+      } else {
+        physics.updatePosition();
+      }
     }
   }
 
@@ -98,16 +108,20 @@ class Game {
           this.drawAsset(assets[i]);
         }
         
+        // check collision for rocks
         this.rocks.forEach(el => {
           Game.checkCollision(this.assets.car, el, this.rocks);
           Game.checkCanvas(el, this.rocks);
         })
   
+        // check collision for life
+
         this.life.forEach(el => {
           Game.checkCollision(this.assets.car, el, this.life);
           Game.checkCanvas(el, this.life);
         })
   
+        // check collision for life
         this.cash.forEach(el => {
           Game.checkCollision(this.assets.car, el, this.cash, this.assets);
           Game.checkCanvas(el, this.cash);
@@ -128,6 +142,7 @@ class Game {
           el.move();
         })
   
+        // render score and lives
         this.assets.road.addScore();
         document.getElementById("score").innerHTML = `Score: ${this.assets.road.score}`;
         document.getElementById("lives").innerHTML = `Lives: ${this.assets.car.life}`;
@@ -148,10 +163,6 @@ class Game {
   }
 
   createRock() {
-    // const rock = new Obstacle(new Physics(
-    //   Math.floor(Math.random() * 310) + 80,
-    //   -900));
-    // this.rocks.push(rock);
     this.rocks.push(new Obstacle(new Physics(
       Math.floor(Math.random() * 310) + 80,
       -20)
@@ -183,13 +194,13 @@ class Game {
     if (!this.gameOver) {
         this.createLife();
       }
-    }, 5000);
+    }, 4500);
 
     setInterval(() => {
     if (!this.gameOver) {
         this.createCash();
       }
-    }, 1000);
+    }, 700);
 
     this.draw();
     this.assets.road.move();
