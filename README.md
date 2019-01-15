@@ -1,60 +1,47 @@
 # Get Away
 
 ## Overview
-Get Away is a driving game full of obstacles. The game functions by pressing left and right to avoid these obstacles and collect as much money as you can. Be careful though, by hitting three obstacles the police will catch up to you in no time.
 
-As the game progresses, the game will pick up in speed increasing the level of difficulty while loading more obstacles. 
+[Get Away Live](https://le-s.github.io/getaway/)
 
-## Functionality
-- User's press left or right to maneuver their car away from obstacles
-- Obstacles load randomly on the road, increasing with progression
-- The pace of the game increases with progression
-- Player's have three collisions before the cops catch up to them
+Get Away is a top-down scrolling car game full of obstacles. Collect as much money as you can, while avoiding obstacles. Be careful! By hitting three obstacles the police will catch up to you in no time.
 
-## Technologies
+## Technologies Used
 - JavaScript for overall structure and game logic
 - HTML5 Canvas for rendering
-- Webpack to bundle various scripts
 
-## Wireframes
+## Features
+- Users can choose to use directional arrows or WASD keys to maneuver their car away from obstacles
+- There will be money on the ground for users to increase their score
+- Obstacles load randomly on the road, increasing difficulty
+- Player's have three lives before the cops catch up to them, user's can collect more lives by collecting turbos
 
-<a href="https://imgur.com/mIqDP2e"><img src="https://i.imgur.com/mIqDP2e.png" title="source: imgur.com" /></a>
+![Snapshot](assets/images/snapshot.png)
 
-## MVPs
-- [ ] Menu renders with directions and button to start game
-- [ ] User's can move left and right 
-- [ ] Obstacles render randomly and move with the road
-- [ ] Three collisions and the game ends, "Too slow!"
+## Highlights
+Collision Detection
+```js
+collide(obj1, obj2) {
+if (obj1.physics.x < obj2.physics.x + obj2.sprite.width
+  && obj1.physics.x + obj1.sprite.width > obj2.physics.x
+  && obj1.physics.y < obj2.physics.y + obj2.sprite.height
+  && obj1.physics.y + obj1.sprite.height > obj2.physics.y
+) return true;
 
-## Implementation timeline
-Day 1
-- [ ] Project concept and proposal
-- [ ] Understand the usage of canvas
+return false;
+}
+```
 
-Day 2
-- [ ] Create skeleton for project
-- [ ] Create layout of the game
 
-Day 3
-- [ ] Start player rendering and functionality
+Infinite road rendering
+```js
+if (asset instanceof Road && asset.physics.y >= 0) {
+  if (sprite.height > canvas.height) {
+    if (asset.physics.y > (canvas.height)) {
+      asset.physics.y = canvas.height - sprite.height;
+    }
 
-Day 4
-- [ ] Complete player rendering and functionality
-- [ ] Start Obstacle rendering and functionality
-
-Day 5
-- [ ] Complete Obstacle rendering and functionality
-- [ ] Add obstacle/player collision logic
-
-Day 6
-- [ ] Touch up UI/UX
-- [ ] Style webpage
-
-Day 7
-- [ ] Bonus Features
-
-## Bonus features
-- Items that can help/hinder player
-  - Tires: run over obstacles
-  - Boost: gives the player a life
-  - Oil: reverse controls
+    this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height, asset.physics.x, asset.physics.y - sprite.height + 1, sprite.width, sprite.height);
+  }
+}
+```
