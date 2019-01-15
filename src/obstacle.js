@@ -11,7 +11,7 @@ class Obstacle {
   }
 
   move() {
-    this.physics.dDown = 2;
+    this.physics.dDown = 4;
   }
 
   stop() {

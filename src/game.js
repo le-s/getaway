@@ -80,7 +80,7 @@ class Game {
         for (let i = 0; i < assets.length; i++) {
           this.drawAsset(assets[i]);
         }
-  
+        
         this.rocks.forEach(el => {
           Game.checkCollision(this.assets.car, el, this.rocks);
           Game.checkCanvas(el, this.rocks);
@@ -142,7 +142,7 @@ class Game {
     if (!this.gameOver) {
         this.createRock();
       }
-    }, 2000);
+    }, 1000);
     setInterval(() => {
     if (!this.gameOver) {
         this.createLife();

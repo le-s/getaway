@@ -13,7 +13,7 @@ class Road {
   }
 
   move() {
-    this.physics.dDown = 2;
+    this.physics.dDown = 4;
   }
 
   addScore() {

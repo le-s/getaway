@@ -12,6 +12,11 @@
     <div class="game-container">
       <div class="canvas-container">
         <div class="info">
+          <div id="splash">
+            <div id="play-btn">
+                <p id="play-btn-text"></p>
+            </div>
+          </div>
           <h1 class="slow" id="slow"></h1>
           <canvas id="canvas" style="border: 1px solid black"></canvas>
         </div>
@@ -19,8 +24,20 @@
       
       <div class="instructions">
         <h2 class="title">Get Away</h2>
-        <h1 class="score" id="score"></h1>
-        <h1 class="lives" id="lives"></h1>
+        <h1 class="score" id="score">Score: 0</h1>
+        <h1 class="lives" id="lives">Lives: 3</h1>
+        <div class="justify">
+          <div class="controls"></div>
+          <div class="obstacle-container">
+            <div class="obstacles"></div>
+            <h2>Obstacles</h2>
+          </div>
+          <div class="life-container">
+            <div class="life"></div>
+            <h2>Extra life</h2>
+          </div>
+        </div>
+
       </div>
     </div>
     
