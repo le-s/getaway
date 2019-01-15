@@ -3,9 +3,10 @@
 // import { request } from 'http';
 import Road from './road.js';
 import Life from './life.js';
-import Util from './util';
-import Obstacle from './obstacle';
-import Physics from './physics';
+import Util from './util.js';
+import Obstacle from './obstacle.js';
+import Physics from './physics.js';
+import Cash from './cash.js';
 
 class Game {
   constructor(canvas, ctx, assets) {
@@ -15,9 +16,11 @@ class Game {
     this.gameOver = false;
     this.rocks = [];
     this.life = [];
+    this.cash = [];
   }
 
-  static checkCollision(car, object, array) {
+  // hit detection for objects
+  static checkCollision(car, object, array, assets) {
     if (object instanceof Obstacle) {
       if (Util.collide(car, object)) {
         car.hitObstacle();
@@ -30,10 +33,27 @@ class Game {
         array.splice(array.indexOf(object), 1);
       }
     }
+    if (object instanceof Cash) {
+      if (Util.collide(car, object)) {
+        assets.road.score += 100;
+        array.splice(array.indexOf(object), 1);
+      }
+    }
   }
 
+  // checks if item passed canvas height to delete
   static checkCanvas(object, array) {
     if (object instanceof Life) {
+      if (object.physics.y > canvas.height) {
+        array.splice(array.indexOf(object), 1);
+      }
+    }
+    if (object instanceof Obstacle) {
+      if (object.physics.y > canvas.height) {
+        array.splice(array.indexOf(object), 1);
+      }
+    }
+    if (object instanceof Cash) {
       if (object.physics.y > canvas.height) {
         array.splice(array.indexOf(object), 1);
       }
@@ -85,6 +105,12 @@ class Game {
   
         this.life.forEach(el => {
           Game.checkCollision(this.assets.car, el, this.life);
+          Game.checkCanvas(el, this.life);
+        })
+  
+        this.cash.forEach(el => {
+          Game.checkCollision(this.assets.car, el, this.cash, this.assets);
+          Game.checkCanvas(el, this.cash);
         })
         
         this.life.forEach(el => {
@@ -93,6 +119,11 @@ class Game {
         });     
   
         this.rocks.forEach(el => {
+          this.drawAsset(el);
+          el.move();
+        })
+  
+        this.cash.forEach(el => {
           this.drawAsset(el);
           el.move();
         })
@@ -134,17 +165,32 @@ class Game {
     ));
   };
 
+  createCash() {
+    this.cash.push(new Cash(new Physics(
+      Math.floor(Math.random() * 310) + 80,
+      -20)
+    ));
+  };
+
   start() {
     setInterval(() => {
     if (!this.gameOver) {
         this.createRock();
       }
     }, 1000);
+
     setInterval(() => {
     if (!this.gameOver) {
         this.createLife();
       }
     }, 5000);
+
+    setInterval(() => {
+    if (!this.gameOver) {
+        this.createCash();
+      }
+    }, 1000);
+
     this.draw();
     this.assets.road.move();
   }

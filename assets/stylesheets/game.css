@@ -39,11 +39,30 @@ html {
   width: 100%;
   font-size: 30px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-top: 16px;
+  margin-top: 25px;
 }
 
 .life {
   background-image: url('../images/turbo.png');
+  height: 50px;
+  width: 50px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.cash-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-top: 25px;
+}
+
+.cash {
+  background-image: url('../images/money.png');
   height: 50px;
   width: 50px;
   background-size: 100%;
@@ -108,9 +127,7 @@ html {
   height: 200px;
   position: absolute;
   width: 200px;
-  /* background-color: red;
-  border: 9px solid gray; */
-  /* border-radius: 50%; */
+  border-radius: 50%;
   display: inline-block;
   margin-top: 250px;
   display: flex;
