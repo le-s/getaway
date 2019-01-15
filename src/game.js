@@ -27,9 +27,6 @@ class Game {
     if (object instanceof Life) {
       if (Util.collide(car, object)) {
         car.getLife();
-        if (!(array instanceof Array)){
-          debugger
-        }
         array.splice(array.indexOf(object), 1);
       }
     }
