@@ -159,6 +159,8 @@ class Game {
       this.gameOver = true;
       this.assets.road.stop();
       document.getElementById("slow").innerHTML = `Too Slow!`;
+      document.getElementById("how").style.visibility = "hidden";
+      document.getElementById("welcome").style.visibility = "visible";
     }
   }
 
