@@ -158,6 +158,7 @@ class Game {
     if (this.assets.car.life <= 0) {
       this.gameOver = true;
       this.assets.road.stop();
+      this.draw();
       document.getElementById("slow").innerHTML = `Too Slow!`;
       document.getElementById("how").style.visibility = "hidden";
       document.getElementById("welcome").style.visibility = "visible";
@@ -186,6 +187,9 @@ class Game {
   };
 
   start() {
+    this.assets.car.resetLife();
+    this.gameOver = false;
+    debugger
     setInterval(() => {
     if (!this.gameOver) {
         this.createRock();

@@ -18,6 +18,10 @@ class Car {
   getLife() {
     this.life += 1;
   }
+
+  resetLife() {
+    this.life = 3;
+  }
 }
 
 export default Car;

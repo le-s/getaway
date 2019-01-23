@@ -95,9 +95,9 @@ html {
   position: relative;
 }
 
-.slow {
+#slow {
   position: absolute;
-  padding: 310px 0 0 90px;
+  padding: 150px 0 0 90px;
   color: white;
   font-size: 78px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
