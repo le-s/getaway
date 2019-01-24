@@ -19,6 +19,23 @@ class Game {
     this.life = [];
     this.cash = [];
     this.assets = assets();
+    this.animate = null;
+    this.create = 
+    setInterval(() => {
+      if (!this.gameOver) {
+        this.createRock();
+      }
+    }, 1000);
+    setInterval(() => {
+      if (!this.gameOver) {
+        this.createLife();
+      }
+    }, 4500);
+    setInterval(() => {
+      if (!this.gameOver) {
+        this.createCash();
+      }
+    }, 700);
   }
 
   // hit detection for objects
@@ -102,7 +119,7 @@ class Game {
     if (!this.gameOver) {
       const animate = () => {
         const assets = Object.values(this.assets);
-        requestAnimationFrame(animate);
+        this.animate = requestAnimationFrame(animate);
         this.ctx.clearRect(0, 0, canvas.width, canvas.height);
   
         for (let i = 0; i < assets.length; i++) {
@@ -187,28 +204,16 @@ class Game {
     ));
   };
 
+  cleanUp() {
+    clearInterval(this.create);
+    window.cancelAnimationFrame(this.animate);
+  }
+
   start() {
     this.gameOver = false;
     document.getElementById("welcome").style.display="none";
     this.assets.car.resetLife();
-    setInterval(() => {
-    if (!this.gameOver) {
-        this.createRock();
-      }
-    }, 1000);
-
-    setInterval(() => {
-    if (!this.gameOver) {
-        this.createLife();
-      }
-    }, 4500);
-
-    setInterval(() => {
-    if (!this.gameOver) {
-        this.createCash();
-      }
-    }, 700);
-
+    debugger
     this.draw();
     this.assets.road.move();
   }
