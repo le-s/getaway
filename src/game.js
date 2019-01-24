@@ -7,17 +7,18 @@ import Util from './util.js';
 import Obstacle from './obstacle.js';
 import Physics from './physics.js';
 import Cash from './cash.js';
-import Car from './car.js'
+import Car from './car.js';
+import assets from './assets.js';
 
 class Game {
-  constructor(canvas, ctx, assets) {
+  constructor(canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
-    this.assets = assets;
     this.gameOver = false;
     this.rocks = [];
     this.life = [];
     this.cash = [];
+    this.assets = assets();
   }
 
   // hit detection for objects
@@ -161,7 +162,7 @@ class Game {
       this.draw();
       document.getElementById("slow").innerHTML = `Too Slow!`;
       document.getElementById("how").style.visibility = "hidden";
-      document.getElementById("welcome").style.visibility = "visible";
+      document.getElementById("welcome").style.display = null;
     }
   }
 
@@ -187,9 +188,9 @@ class Game {
   };
 
   start() {
-    this.assets.car.resetLife();
     this.gameOver = false;
-    debugger
+    document.getElementById("welcome").style.display="none";
+    this.assets.car.resetLife();
     setInterval(() => {
     if (!this.gameOver) {
         this.createRock();
