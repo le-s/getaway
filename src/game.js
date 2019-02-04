@@ -84,9 +84,16 @@ class Game {
       }
     }
 
-    // draw everything else
-    this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
-      physics.x, physics.y, sprite.width, sprite.height);
+    if (asset instanceof Car) {
+      this.ctx.drawImage(sprite.img, 
+        0, 0, sprite.width, sprite.height,
+        physics.x, physics.y, sprite.width, sprite.height);
+    } else {
+      // draw everything else
+      this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
+        physics.x, physics.y, sprite.width, sprite.height);
+    }
+
 
     
     // update position of all objects

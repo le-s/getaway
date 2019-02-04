@@ -7,7 +7,7 @@ carImg.src = './assets/images/car.png';
 class Car {
   constructor(physics) {
     this.physics = physics;
-    this.sprite = new Sprite(carImg, 150, 74);
+    this.sprite = new Sprite(carImg, 150, 70);
     this.life = 3;
   }
 
