@@ -123,6 +123,11 @@ html {
   transition: all .5s ease;
 }
 
+.score-value--mod-back {
+  color: black;
+  transition: all .5s ease;
+}
+
 .lives-container {
   color: black;
   text-align: center;

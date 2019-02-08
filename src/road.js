@@ -40,6 +40,10 @@ class Road {
     this.physics.dDown = 0;
     this.gameOver = true;
   }
+
+  addSpeed() {
+    this.physics.dDown += 1;
+  }
 }
 
 export default Road;
