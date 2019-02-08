@@ -22,6 +22,15 @@ class Car {
   resetLife() {
     this.life = 3;
   }
+
+  draw(ctx) {
+    const {sprite, physics} = this;
+    const xOffSet = (sprite.width / -2) + (physics.width / 2);
+    const yOffSet = (sprite.height / -2) + (physics.height / 2);
+    ctx.drawImage(sprite.img,
+      0, 0, sprite.width, sprite.height,
+      physics.x + xOffSet, physics.y + yOffSet, sprite.width, sprite.height);
+  }
 }
 
 export default Car;

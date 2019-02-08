@@ -10,7 +10,7 @@ class Cash {
   }
 
   move() {
-    this.physics.dDown = 4;
+    this.physics.dDown = 6;
   }
 
   stop() {

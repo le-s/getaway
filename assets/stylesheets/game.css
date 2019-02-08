@@ -104,20 +104,41 @@ html {
   font-style: oblique;
 }
 
-.score {
+.score-container {
   color: black;
   text-align: center;
   font-size: 46px;
   line-height: 52px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
-.lives {
+.score-value {
+  padding-left: 10px;
+}
+
+.score-value--mod {
+  color: limegreen;
+  transition: all .5s ease;
+}
+
+.lives-container {
   color: black;
   text-align: center;
   font-size: 32px;
   line-height: 40px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.lives-value {
+  padding-left: 10px;
+}
+
+.lives-value--mod {
+  color: red;
 }
 
 #play-btn {

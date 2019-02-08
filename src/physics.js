@@ -1,7 +1,9 @@
 class Physics {
-  constructor(x, y) {
+  constructor(x, y, w = null, h = null) {
     this.x = x;
     this.y = y;
+    this.width = w;
+    this.height = h;
     this.dLeft = 0;
     this.dRight = 0;
     this.dDown = 0;

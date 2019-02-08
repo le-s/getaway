@@ -39,6 +39,7 @@ class Game {
     if (object instanceof Cash) {
       if (Util.collide(car, object)) {
         assets.road.score += 100;
+        assets.road.makeGreen();
         array.splice(array.indexOf(object), 1);
       }
     }
@@ -85,9 +86,10 @@ class Game {
     }
 
     if (asset instanceof Car) {
-      this.ctx.drawImage(sprite.img, 
-        0, 0, sprite.width, sprite.height,
-        physics.x, physics.y, sprite.width, sprite.height);
+      // this.ctx.drawImage(sprite.img, 
+      //   0, 0, sprite.width, sprite.height,
+      //   physics.x, physics.y, sprite.width, sprite.height);
+      asset.draw(this.ctx);
     } else {
       // draw everything else
       this.ctx.drawImage(sprite.img, 0, 0, sprite.width, sprite.height,
@@ -153,10 +155,24 @@ class Game {
   
         // render score and lives
         this.assets.road.addScore();
-        document.getElementById("score").innerHTML = `Score: ${this.assets.road.score}`;
-        document.getElementById("lives").innerHTML = `Lives: ${this.assets.car.life}`;
+        document.getElementById("score").innerHTML = `${this.assets.road.score}`;
+        document.getElementById("lives").innerHTML = `${this.assets.car.life}`;
         this.end();
 
+        if (this.assets.road.green) {
+          document.getElementById("score").style.color =
+            "limegreen";
+          document.getElementById("score").style.fontSize =
+            "56px";
+          document.getElementById("score").style.transition =
+            "all .1s ease";
+        } else {
+          document.getElementById("score").style.color = "black";
+          document.getElementById("score").style.fontSize =
+            "46px";
+          document.getElementById("score").style.transition =
+            "all .1s ease";
+        }
       }
   
       animate();

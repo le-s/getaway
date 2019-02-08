@@ -10,10 +10,12 @@ class Road {
     this.sprite = new Sprite(roadImg, 1262, 502);
     this.score = 0;
     this.gameOver = false;
+    this.green = false;
+    this.red = false;
   }
 
   move() {
-    this.physics.dDown = 4;
+    this.physics.dDown = 6;
   }
 
   addScore() {
@@ -22,6 +24,17 @@ class Road {
     } else {
       this.score;
     }
+  }
+
+  makeGreen() {
+    this.green = true;
+    setTimeout(() => {
+      this.makeGreenFalse() 
+    }, 1000);
+  }
+
+  makeGreenFalse() {
+    this.green = false;
   }
 
   stop() {
