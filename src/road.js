@@ -11,7 +11,6 @@ class Road {
     this.score = 0;
     this.gameOver = false;
     this.green = false;
-    this.red = false;
   }
 
   move() {
@@ -30,7 +29,7 @@ class Road {
     this.green = true;
     setTimeout(() => {
       this.makeGreenFalse() 
-    }, 1000);
+    }, 300);
   }
 
   makeGreenFalse() {

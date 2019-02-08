@@ -9,6 +9,8 @@ class Car {
     this.physics = physics;
     this.sprite = new Sprite(carImg, 150, 70);
     this.life = 3;
+    this.green = false;
+    this.red = false;
   }
 
   hitObstacle() {
@@ -21,6 +23,28 @@ class Car {
 
   resetLife() {
     this.life = 3;
+  }
+
+  makeGreen() {
+    this.green = true;
+    setTimeout(() => {
+      this.makeGreenFalse()
+    }, 200);
+  }
+
+  makeGreenFalse() {
+    this.green = false;
+  }
+
+  makeRed() {
+    this.red = true;
+    setTimeout(() => {
+      this.makeRedFalse()
+    }, 200);
+  }
+
+  makeRedFalse() {
+    this.red = false;
   }
 
   draw(ctx) {

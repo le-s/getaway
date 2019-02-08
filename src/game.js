@@ -27,12 +27,14 @@ class Game {
     if (object instanceof Obstacle) {
       if (Util.collide(car, object)) {
         car.hitObstacle();
+        car.makeRed();
         array.splice(array.indexOf(object), 1);
       }
     }
     if (object instanceof Life) {
       if (Util.collide(car, object)) {
         car.getLife();
+        car.makeGreen();
         array.splice(array.indexOf(object), 1);
       }
     }
@@ -171,6 +173,28 @@ class Game {
           document.getElementById("score").style.fontSize =
             "46px";
           document.getElementById("score").style.transition =
+            "all .1s ease";
+        }
+
+        if (this.assets.car.green) {
+          document.getElementById("lives").style.color =
+            "limegreen";
+          document.getElementById("lives").style.fontSize =
+            "50px";
+          document.getElementById("lives").style.transition =
+            "all .1s ease";
+        } else if (this.assets.car.red) {
+          document.getElementById("lives").style.color =
+            "red";
+          document.getElementById("lives").style.fontSize =
+            "50px";
+          document.getElementById("lives").style.transition =
+            "all .1s ease";
+        } else {
+          document.getElementById("lives").style.color = "black";
+          document.getElementById("lives").style.fontSize =
+            "32px";
+          document.getElementById("lives").style.transition =
             "all .1s ease";
         }
       }
