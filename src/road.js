@@ -10,7 +10,6 @@ class Road {
     this.sprite = new Sprite(roadImg, 1262, 502);
     this.score = 0;
     this.gameOver = false;
-    this.green = false;
   }
 
   move() {
@@ -26,14 +25,11 @@ class Road {
   }
 
   makeGreen() {
-    this.green = true;
+    const score = document.getElementById("score");
+    score.classList.toggle("score-value--mod");
     setTimeout(() => {
-      this.makeGreenFalse() 
+      score.classList.toggle("score-value--mod");
     }, 300);
-  }
-
-  makeGreenFalse() {
-    this.green = false;
   }
 
   stop() {

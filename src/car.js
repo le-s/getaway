@@ -9,8 +9,6 @@ class Car {
     this.physics = physics;
     this.sprite = new Sprite(carImg, 150, 70);
     this.life = 3;
-    this.green = false;
-    this.red = false;
   }
 
   hitObstacle() {
@@ -26,25 +24,19 @@ class Car {
   }
 
   makeGreen() {
-    this.green = true;
+    const score = document.getElementById("lives");
+    score.classList.toggle("lives-value--green");
     setTimeout(() => {
-      this.makeGreenFalse()
+      score.classList.toggle("lives-value--green");
     }, 200);
-  }
-
-  makeGreenFalse() {
-    this.green = false;
   }
 
   makeRed() {
-    this.red = true;
+    const score = document.getElementById("lives");
+    score.classList.toggle("lives-value--red");
     setTimeout(() => {
-      this.makeRedFalse()
+      score.classList.toggle("lives-value--red");
     }, 200);
-  }
-
-  makeRedFalse() {
-    this.red = false;
   }
 
   draw(ctx) {

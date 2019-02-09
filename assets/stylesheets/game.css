@@ -112,19 +112,19 @@ html {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: flex;
   justify-content: center;
+  transition: all .5s ease;
 }
 
 .score-value {
+  color: black;
   padding-left: 10px;
+  font-size: 46px;
+  transition: all .5s ease;
 }
 
 .score-value--mod {
   color: limegreen;
-  transition: all .5s ease;
-}
-
-.score-value--mod-back {
-  color: black;
+  font-size: 56px;
   transition: all .5s ease;
 }
 
@@ -139,11 +139,22 @@ html {
 }
 
 .lives-value {
+  color: black;
+  font-size: 32px;
   padding-left: 10px;
+  transition: all .5s ease;
 }
 
-.lives-value--mod {
+.lives-value--red {
   color: red;
+  transition: all .5s ease;
+  font-size: 50px;
+}
+
+.lives-value--green {
+  color: limegreen;
+  transition: all .5s ease;
+  font-size: 50px;
 }
 
 #play-btn {

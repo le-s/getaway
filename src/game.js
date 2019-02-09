@@ -160,43 +160,6 @@ class Game {
         document.getElementById("score").innerHTML = `${this.assets.road.score}`;
         document.getElementById("lives").innerHTML = `${this.assets.car.life}`;
         this.end();
-
-        if (this.assets.road.green) {
-          document.getElementById("score").style.color =
-            "limegreen";
-          document.getElementById("score").style.fontSize =
-            "56px";
-          document.getElementById("score").style.transition =
-            "all .1s ease";
-        } else {
-          document.getElementById("score").style.color = "black";
-          document.getElementById("score").style.fontSize =
-            "46px";
-          document.getElementById("score").style.transition =
-            "all .1s ease";
-        }
-
-        if (this.assets.car.green) {
-          document.getElementById("lives").style.color =
-            "limegreen";
-          document.getElementById("lives").style.fontSize =
-            "50px";
-          document.getElementById("lives").style.transition =
-            "all .1s ease";
-        } else if (this.assets.car.red) {
-          document.getElementById("lives").style.color =
-            "red";
-          document.getElementById("lives").style.fontSize =
-            "50px";
-          document.getElementById("lives").style.transition =
-            "all .1s ease";
-        } else {
-          document.getElementById("lives").style.color = "black";
-          document.getElementById("lives").style.fontSize =
-            "32px";
-          document.getElementById("lives").style.transition =
-            "all .1s ease";
-        }
       }
   
       animate();
