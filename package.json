@@ -4,7 +4,7 @@
   "description": "## Overview Get Away is a driving game full of obstacles. The game functions by pressing left and right to avoid these obstacles and collect as much money as you can. Be careful though, by hitting three obstacles the police will catch up to you in no time.",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.21",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1"
   },
